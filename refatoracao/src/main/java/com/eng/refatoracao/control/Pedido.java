@@ -1,6 +1,9 @@
-package com.eng.refatoracao;
+package com.eng.refatoracao.control;
 
 import java.util.*;
+
+import com.eng.refatoracao.banco.BancoDeDados;
+import com.eng.refatoracao.utils.RelatorioService;
 
 
 public class Pedido {
@@ -49,8 +52,9 @@ public class Pedido {
     }
 
     public void atualizarEstoque() {
+        BancoEstoque bancoEstoque = new BancoEstoque();
         for (String p : produtos) {
-            System.out.println("Atualizando estoque de: " + p);
+            bancoEstoque.atualizarEstoque(p);
         }
     }
 

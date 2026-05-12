@@ -1,5 +1,6 @@
-package com.eng.refatoracao;
+package com.eng.refatoracao.banco;
 
+import com.eng.refatoracao.control.Pedido;
 
 public class BancoDeDados {
 

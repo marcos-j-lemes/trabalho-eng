@@ -1,5 +1,12 @@
 package com.eng.refatoracao;
 
+//import com.eng.refatoracao.banco.BancoDeDados;
+//import com.eng.refatoracao.utils.RelatorioService;
+import com.eng.refatoracao.control.Pedido;
+import com.eng.refatoracao.control.SalvarLog;
+import com.eng.refatoracao.control.controlRelatorio;
+
+
 public class Main {
 
     public static void main(String[] args) {
@@ -15,10 +22,11 @@ public class Main {
 
         p.finalizar();
 
-        BancoDeDados.salvarLog("Sistema finalizado");
+        SalvarLog.salvar("Sistema finalizado");
 
-        RelatorioService r = new RelatorioService();
-        r.gerar(p);
+
+        controlRelatorio cr = new controlRelatorio();
+        cr.gerar(p);
 
         System.out.println("Frete: " + p.frete);
         System.out.println("Status: " + p.status);

@@ -1,4 +1,7 @@
-package com.eng.refatoracao;
+package com.eng.refatoracao.utils;
+
+
+import com.eng.refatoracao.control.Pedido;
 
 
 public class RelatorioService {
