@@ -27,9 +27,14 @@ application {
     mainClass = 'com.eng.refatoracao.Main'
 }
 
+tasks.named('run') {
+    standardInput = System.in
+}
+
 task runMain(type: JavaExec) {
     group = 'application'
     description = 'Runs the main class'
     classpath = sourceSets.main.runtimeClasspath
     mainClass = 'com.eng.refatoracao.Main'
+    standardInput = System.in
 }

@@ -1,46 +1,43 @@
 package com.eng.refatoracao.banco;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BancoEstoque {
 
-    public List<String> produtos = new ArrayList<>();
-    public List<Double> precos = new ArrayList<>();
-    public List<Integer> quantidades = new ArrayList<>();
+    private final List<String> produtos = new ArrayList<>();
+    private final List<Double> precos = new ArrayList<>();
+    private final List<Integer> quantidades = new ArrayList<>();
 
-    public String clienteNome;
-    public String clienteEmail;
-    public String clienteEndereco;
-
-    public double total;
-    public double frete;
-    public String status;
-
-    // crude methods for managing stock
     public boolean addProduto(String nome, double preco, int qtd) {
+        if (produtos.contains(nome)) {
+            int index = produtos.indexOf(nome);
+            precos.set(index, preco);
+            quantidades.set(index, qtd);
+            return true;
+        }
+
         produtos.add(nome);
         precos.add(preco);
         quantidades.add(qtd);
         return true;
     }
 
-    public boolean atualizarEstoque(String nome) {
-        System.out.println("Atualizando estoque de: " + nome);
+    public boolean atualizarEstoque(String nome, int quantidadeVendida) {
         if (produtos.contains(nome)) {
             int index = produtos.indexOf(nome);
-            int qtd = quantidades.get(index);
-            if (qtd > 0) {
-                quantidades.set(index, qtd - 1);
+            int quantidadeAtual = quantidades.get(index);
+            if (quantidadeAtual >= quantidadeVendida) {
+                quantidades.set(index, quantidadeAtual - quantidadeVendida);
                 return true;
-            } else {
-                System.out.println("Produto " + nome + " sem estoque");
-                return false;
             }
-        } else {
-            System.out.println("Produto " + nome + " não encontrado");
+
+            System.out.println("Produto " + nome + " sem estoque suficiente");
             return false;
         }
-        return true;
+
+        System.out.println("Produto " + nome + " não encontrado");
+        return false;
     }
 
     public boolean removerProduto(String nome) {
@@ -62,5 +59,4 @@ public class BancoEstoque {
             System.out.println(produtos.get(i) + " - R$ " + precos.get(i) + " - " + quantidades.get(i) + " unidades");
         }
     }
-    
 }
