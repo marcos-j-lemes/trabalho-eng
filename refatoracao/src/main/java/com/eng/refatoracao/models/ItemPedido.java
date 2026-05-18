@@ -1,10 +1,9 @@
-package com.eng.refatoracao.model;
+package com.eng.refatoracao.models;
 
 public class ItemPedido {
-
-    private final String nome;
-    private final double preco;
-    private final int quantidade;
+    private String nome;
+    private double preco;
+    private int quantidade;
 
     public ItemPedido(String nome, double preco, int quantidade) {
         this.nome = nome;

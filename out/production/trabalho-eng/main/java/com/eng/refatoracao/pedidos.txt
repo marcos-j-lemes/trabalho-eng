@@ -1,0 +1,13 @@
+# Formato:
+# PRODUTO;nome;preco;quantidade
+# CLIENTE;nome;email;estado-ou-endereco
+# ITEM;nome;preco;quantidade
+
+PRODUTO;Notebook;3000;5
+PRODUTO;Mouse;100;10
+PRODUTO;Teclado;150;8
+PRODUTO;Monitor;900;4
+CLIENTE;Maria;maria@email.com;SC
+CLIENTE;Marcos;marcos@email.com;SC
+ITEM;Notebook;3000;1
+ITEM;Mouse;100;2
